@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Nirrali 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --rose: #e8a0b8;
+      --rose-deep: #c75d7a;
+      --blush: #f8e1e8;
+      --cream: #fff5f7;
+      --gold: #d4a574;
+      --text: #5c3d4a;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 50%, #f8bbd9 100%);
+      color: var(--text);
+    }
+
+    /* Floating hearts background */
+    .hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.15;
+      animation: float 8s ease-in-out infinite;
+    }
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 1s; }
+    .heart:nth-child(3) { left: 40%; animation-delay: 2s; }
+    .heart:nth-child(4) { left: 60%; animation-delay: 0.5s; }
+    .heart:nth-child(5) { left: 75%; animation-delay: 1.5s; }
+    .heart:nth-child(6) { left: 90%; animation-delay: 2.5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.15; }
+      90% { opacity: 0.15; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    .page {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .page.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ========== PAGE 1: INTRO ========== */
+    #intro .envelope {
+      width: 280px;
+      height: 180px;
+      background: linear-gradient(145deg, #f8e1e8, #e8a0b8);
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(199, 93, 122, 0.3);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: gentle-pulse 2s ease-in-out infinite;
+    }
+    #intro .envelope:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(199, 93, 122, 0.4);
+    }
+    #intro .envelope::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 0;
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 60px solid #e8a0b8;
+      transform-origin: top;
+      transition: transform 0.5s ease;
+    }
+    #intro .envelope:hover::before {
+      transform: rotateX(180deg);
+    }
+    #intro .envelope::after {
+      content: '✉';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      opacity: 0.9;
+    }
+    @keyframes gentle-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    #intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-top: 2rem;
+      color: var(--rose-deep);
+      text-align: center;
+    }
+    #intro p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    /* ========== PAGE 2: QUESTION ========== */
+    #question {
+      text-align: center;
+    }
+    #question h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: var(--rose-deep);
+      margin-bottom: 2rem;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+    #question .buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    #question .btn {
+      padding: 1rem 2.5rem;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #question .btn-yes {
+      background: linear-gradient(135deg, #c75d7a, #e8a0b8);
+      color: white;
+      box-shadow: 0 6px 24px rgba(199, 93, 122, 0.4);
+    }
+    #question .btn-yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 32px rgba(199, 93, 122, 0.5);
+    }
+    #question .btn-no {
+      position: relative;
+      background: linear-gradient(135deg, #b0b0b0, #e0e0e0);
+      color: #666;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      user-select: none;
+      transition: transform 0.15s ease-out;
+    }
+    #question .tease {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--rose-deep);
+      opacity: 0.9;
+      min-height: 1.5em;
+    }
+
+    /* ========== PAGE 3: THANK YOU ========== */
+    #thanks h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--rose-deep);
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    #thanks .heart-burst {
+      font-size: 4rem;
+      margin: 1rem 0;
+      animation: heartBeat 0.8s ease infinite;
+    }
+    #thanks p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 400px;
+      line-height: 1.7;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+    #thanks .sign {
+      margin-top: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 1.1rem;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.15); }
+    }
+
+    /* Confetti / mini hearts on thank you */
+    .mini-hearts {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.2rem;
+      animation: rise 3s ease-out forwards;
+      opacity: 0.8;
+    }
+    @keyframes rise {
+      to {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg">
+    <span class="heart">💕</span>
+    <span class="heart">💗</span>
+    <span class="heart">💖</span>
+    <span class="heart">💕</span>
+    <span class="heart">💗</span>
+    <span class="heart">💖</span>
+  </div>
+
+  <!-- PAGE 1: Intro -->
+  <section class="page active" id="intro">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
+      <!-- envelope visual -->
+    </div>
+    <h1>Something special for you</h1>
+    <p>Tap the envelope to open it 💌</p>
+  </section>
+
+  <!-- PAGE 2: Question -->
+  <section class="page" id="question">
+    <h2>Nirrali, will you be my Valentine?</h2>
+    <div class="buttons">
+      <button type="button" class="btn btn-yes" id="btnYes">Yes!</button>
+      <button type="button" class="btn btn-no" id="btnNo">No</button>
+    </div>
+    <p class="tease" id="tease"></p>
+  </section>
+
+  <!-- PAGE 3: Thank you -->
+  <section class="page" id="thanks">
+    <h2>Thank you for saying yes!</h2>
+    <div class="heart-burst">💕</div>
+    <p>You make every day feel like Valentine's Day. I'm so lucky to have you. Here's to more adventures, laughs, and love with you.</p>
+    <p class="sign">— With all my love 💕</p>
+  </section>
+
+  <script>
+    const intro = document.getElementById('intro');
+    const question = document.getElementById('question');
+    const thanks = document.getElementById('thanks');
+    const envelope = document.getElementById('envelope');
+    const btnYes = document.getElementById('btnYes');
+    const btnNo = document.getElementById('btnNo');
+    const teaseEl = document.getElementById('tease');
+
+    const teaseMessages = [
+      "The button says run... 🏃",
+      "Nope, over here! 👆",
+      "Still no! Try again 😊",
+      "You're so close... or are you?",
+      "Yes is the way to go! 💕",
+      "No is on a vacation today ✈️",
+      "This button is shy!",
+      "Yes is waiting for you 💖",
+      "Maybe... try the other one?",
+      "I promise Yes is friendlier!",
+      "No is sleeping. Shh. 😴",
+      "Yes wants a hug! 🤗",
+    ];
+    let teaseIndex = 0;
+
+    function goToQuestion() {
+      intro.classList.remove('active');
+      question.classList.add('active');
+    }
+
+    function goToThanks() {
+      question.classList.remove('active');
+      thanks.classList.add('active');
+      spawnMiniHearts();
+    }
+
+    function spawnMiniHearts() {
+      const symbols = ['💕', '💗', '💖', '❤️'];
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const el = document.createElement('span');
+          el.className = 'mini-hearts';
+          el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+          el.style.left = Math.random() * 100 + '%';
+          el.style.animationDelay = Math.random() * 0.5 + 's';
+          thanks.appendChild(el);
+          setTimeout(() => el.remove(), 3200);
+        }, i * 80);
+      }
+    }
+
+    envelope.addEventListener('click', goToQuestion);
+    envelope.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToQuestion(); } });
+
+    btnYes.addEventListener('click', goToThanks);
+
+    // No button: run away when cursor gets close, on hover, or on click — she can't catch it!
+    const noBtn = btnNo;
+    let lastTeaseTime = 0;
+    let noBtnMoved = false;
+
+    function moveNoButton() {
+      noBtnMoved = true;
+      const rect = noBtn.getBoundingClientRect();
+      const maxX = window.innerWidth - rect.width - 24;
+      const maxY = window.innerHeight - rect.height - 24;
+      // Jump to a random spot, but not under the cursor (offset from current position)
+      const dx = (Math.random() - 0.5) * 200;
+      const dy = (Math.random() - 0.5) * 200;
+      let x = rect.left + dx;
+      let y = rect.top + dy;
+      x = Math.max(12, Math.min(maxX, x));
+      y = Math.max(12, Math.min(maxY, y));
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+      noBtn.style.transition = 'left 0.2s ease-out, top 0.2s ease-out';
+      if (Date.now() - lastTeaseTime > 700) {
+        lastTeaseTime = Date.now();
+        teaseEl.textContent = teaseMessages[teaseIndex % teaseMessages.length];
+        teaseIndex++;
+      }
+    }
+
+    noBtn.addEventListener('mouseenter', moveNoButton);
+    noBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    // Chase: when cursor gets close to No button, it runs away
+    document.addEventListener('mousemove', (e) => {
+      if (!question.classList.contains('active') || !noBtnMoved) return;
+      const rect = noBtn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+      if (dist < 140) moveNoButton();
+    });
+  </script>
+</body>
+</html>
